@@ -4,7 +4,7 @@ Simple calculator for runners to calculate paces or times to given distances.
 
 See a working example: https://static.ethylomat.de/PaceCalculator/
 
-![PaceCalculator Screenshot](https://static.ethylomat.de/pace/pace.png)
+![PaceCalculator Screenshot](https://static.ethylomat.de/PaceCalculator/pace.png)
 
 ## Used Libraries / Fonts / Images
 
