@@ -6,7 +6,7 @@ See a working example: https://static.ethylomat.de/pace/
 
 ![PaceCalculator Screenshot](https://static.ethylomat.de/pace/pace.png)
 
-## Used Libraries / Fonts
+## Used Libraries / Fonts / Images
 
 Libraries:
 - Semantic UI: https://github.com/Semantic-Org/Semantic-UI
@@ -14,3 +14,6 @@ Libraries:
 
 Fonts:
 - PT Sans: https://fonts.google.com/specimen/PT+Sans
+
+Background-Pattern:
+- The Pattern Library: http://thepatternlibrary.com/
