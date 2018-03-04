@@ -234,8 +234,8 @@
                 <div class="eight wide column">
                     <h5>Set Pace (min:sec / km):</h5>
                     <div class="ui input">
-                        <input class="left" type="text" ng-model="a" placeholder="m">
-                        <input class="center" type="text" ng-model="b" placeholder="s">
+                        <input class="left" type="text" ng-model="a" placeholder="m" onclick="this.value=''">
+                        <input class="center" type="text" ng-model="b" placeholder="s" onclick="this.value=''">
                         <button class="ui button right" ng-click="setPace()">setPace()</button>
                     </div>
 
@@ -245,9 +245,9 @@
                 <div class="eight wide column">
                     <h5>Set Time (hh:mm:ss):</h5>
                     <div class="ui input">
-                        <input class="left" type="text" ng-model="x" placeholder="h">
-                        <input class="center" type="text" ng-model="y" placeholder="m">
-                        <input class="center" type="text" ng-model="z" placeholder="s">
+                        <input class="left" type="text" ng-model="x" placeholder="h" onclick="this.value=''">
+                        <input class="center" type="text" ng-model="y" placeholder="m" onclick="this.value=''">
+                        <input class="center" type="text" ng-model="z" placeholder="s" onclick="this.value=''">
                         <button class="ui button right" ng-click="setTime()">setTime()</button>
                     </div>
                 </div>
@@ -309,7 +309,7 @@
                 "distance": 20,
             },
             {
-                "title": "21,0975 km",
+                "title": "21,0975",
                 "distance": 21.0975,
                 "mark": 1,
             },
