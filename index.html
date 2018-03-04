@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<head>
+    <html lang="en-US">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.0/dist/semantic.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            background-color: #778ca3;
+        }
+
+        .paceinput {
+            width: 20px;
+        }
+
+        #content {
+            width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .ui.input>input.left {
+            border-radius: .28571429rem 0 0 .28571429rem;
+            border-right-width: 0.5px;
+        }
+
+        .ui.input>input.right {
+            border-radius: 0 .28571429rem .28571429rem 0;
+            border-left-width: 0.5px;
+        }
+
+        .ui.input>input.center {
+            border-radius: 0;
+            border-left-width: 0.5px;
+            border-right-width: 0.5px;
+        }
+
+        .ui.input>input {
+            margin: 0;
+            width: 50px;
+            -webkit-box-flex: 1;
+            -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+            outline: 0;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            text-align: left;
+            line-height: 1.21428571em;
+            font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 0;
+            background: #fff;
+            border: 1.2pt solid #a5b1c2;
+            color: rgba(0, 0, 0, .87);
+            -webkit-transition: border-color .1s ease, -webkit-box-shadow .1s ease;
+            transition: border-color .1s ease, -webkit-box-shadow .1s ease;
+            transition: box-shadow .1s ease, border-color .1s ease;
+            transition: box-shadow .1s ease, border-color .1s ease, -webkit-box-shadow .1s ease;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            padding: 10px;
+        }
+
+        .ui.table thead th {
+            cursor: auto;
+            background: #d1d8e0;
+            ;
+            background-image: initial;
+            background-position-x: initial;
+            background-position-y: initial;
+            background-size: initial;
+            background-repeat-x: initial;
+            background-repeat-y: initial;
+            background-attachment: initial;
+            background-origin: initial;
+            background-clip: initial;
+            background-color: #d1d8e0;
+            text-align: inherit;
+            color: rgba(0, 0, 0, .87);
+            padding: .92857143em .78571429em;
+            vertical-align: inherit;
+            font-style: none;
+            font-weight: 700;
+            text-transform: none;
+            border-bottom: 1px solid rgba(34, 36, 38, .1);
+            border-left: none;
+        }
+
+        .ui.button {
+            cursor: pointer;
+            display: inline-block;
+            min-height: 1em;
+            outline: 0;
+            border: none;
+            vertical-align: baseline;
+            background: #a5b1c2 none;
+            color: rgba(0, 0, 0, .6);
+            font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            margin: 0 .25em 0 0;
+            padding: .89571429em 1.2em .83071429em;
+            text-transform: none;
+            text-shadow: none;
+            font-weight: 700;
+            line-height: 1em;
+            font-style: normal;
+            text-align: center;
+            text-decoration: none;
+            border-radius: .28571429rem;
+            -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+            box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-transition: opacity .1s ease, background-color .1s ease, color .1s ease, background .1s ease, -webkit-box-shadow .1s ease;
+            transition: opacity .1s ease, background-color .1s ease, color .1s ease, background .1s ease, -webkit-box-shadow .1s ease;
+            transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease;
+            transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease, -webkit-box-shadow .1s ease;
+            will-change: '';
+            -webkit-tap-highlight-color: transparent;
+            margin-left: 0;
+        }
+
+        .ui.button.right {
+            cursor: pointer;
+            display: inline-block;
+            min-height: 1em;
+            outline: 0;
+            border: none;
+            vertical-align: baseline;
+            background: #a5b1c2 none;
+            color: rgba(0, 0, 0, .6);
+            font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            margin: 0 .25em 0 0;
+            padding: .89571429em 1.2em .83071429em;
+            text-transform: none;
+            text-shadow: none;
+            font-weight: 700;
+            line-height: 1em;
+            font-style: normal;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 0 .28571429rem .28571429rem 0;
+            -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+            box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-transition: opacity .1s ease, background-color .1s ease, color .1s ease, background .1s ease, -webkit-box-shadow .1s ease;
+            transition: opacity .1s ease, background-color .1s ease, color .1s ease, background .1s ease, -webkit-box-shadow .1s ease;
+            transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease;
+            transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease, -webkit-box-shadow .1s ease;
+            will-change: '';
+            -webkit-tap-highlight-color: transparent;
+            margin-left: 0;
+        }
+
+
+        body,
+        h1,
+        h5,
+        input,
+        .ui.button.right,
+        .ui.button,
+        .ui.input>input {
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .ui.input>input,
+        input.noborder {
+            font-family: 'PT Sans', sans-serif;
+            font-weight: bold;
+        }
+
+        h5 {
+            margin-bottom: 2px;
+        }
+
+        tr {
+            font-weight: bold;
+        }
+
+        thead th {
+            font-size: 12pt;
+            padding: 0;
+        }
+
+        tr.marked-row {
+            background-color: rgba(38, 222, 129, 0.1);
+        }
+
+        .ui.table thead th {
+            cursor: auto;
+            text-align: inherit;
+            color: rgba(0, 0, 0, .87);
+            padding: .52857143em 1.2em;
+            vertical-align: inherit;
+            font-style: none;
+            font-weight: 700;
+            text-transform: none;
+            border-bottom: 1px solid rgba(34, 36, 38, .1);
+            border-left: none;
+        }
+
+        .ui.compact.table td {
+            padding: .3em 1.2em;
+        }
+
+        .ui.compact.table th {
+            padding: .5em 1em;
+        }
+
+        input.noborder {
+            border-width: 0px;
+            width: 35px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="content" class="ui segment" ng-app="myApp" ng-controller="myCtrl">
+
+        <h1>Pace Calculator</h1>
+
+        <div class="ui segment">
+            <div class="ui grid container">
+                <div class="eight wide column">
+                    <h5>Set Pace:</h5>
+                    <div class="ui input">
+                        <input class="left" type="text" ng-model="a" placeholder="m">
+                        <input class="center" type="text" ng-model="b" placeholder="s">
+                        <button class="ui button right" ng-click="setPace()">setPace()</button>
+                    </div>
+
+
+
+                </div>
+                <div class="eight wide column">
+                    <h5>Set Time:</h5>
+                    <div class="ui input">
+                        <input class="left" type="text" ng-model="x" placeholder="h">
+                        <input class="center" type="text" ng-model="y" placeholder="m">
+                        <input class="center" type="text" ng-model="z" placeholder="s">
+                        <button class="ui button right" ng-click="setTime()">setTime()</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <table class="ui compact table selectable celled">
+            <thead>
+                <tr>
+                    <th class="six wide">Distanz</th>
+                    <th class="five wide">Zeit</th>
+                    <th class="five wide">Pace</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="distance in distances" ng-class="{'marked-row': distance.mark == 1}">
+                    <td>{{ distance.title }}</td>
+                    <td>{{ distance.time }}</td>
+                    <td>{{ distance.pace }}</td>
+                </tr>
+                <tr>
+                    <td><input class="left noborder" type="text" ng-model="c_distance" placeholder="..."> km</td>
+                    <td>{{ c_time }}</td>
+                    <td>{{ c_pace }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.distances = [{
+                "title": "1 km",
+                "distance": 1,
+                "mark": 1,
+            },
+            {
+                "title": "5 km",
+                "distance": 5,
+            },
+            {
+                "title": "10 km",
+                "distance": 10,
+                "mark": 1,
+            },
+            {
+                "title": "15 km",
+                "distance": 15,
+            },
+            {
+                "title": "20 km",
+                "distance": 20,
+            },
+            {
+                "title": "21,0975 km",
+                "distance": 21.0975,
+                "mark": 1,
+            },
+            {
+                "title": "25 km",
+                "distance": 25,
+            },
+            {
+                "title": "30 km",
+                "distance": 30,
+            },
+            {
+                "title": "35 km",
+                "distance": 35,
+            },
+            {
+                "title": "40 km",
+                "distance": 40,
+            },
+            {
+                "title": "42,195 km",
+                "distance": 42.195,
+                "mark": 1,
+            },
+            {
+                "title": "50 km",
+                "distance": 50,
+            },
+            {
+                "title": "60 km",
+                "distance": 60,
+            },
+            {
+                "title": "70 km",
+                "distance": 70,
+            },
+            {
+                "title": "80 km",
+                "distance": 80,
+            },
+            {
+                "title": "90 km",
+                "distance": 90,
+            },
+            {
+                "title": "100 km",
+                "distance": 100,
+            },
+        ];
+        $scope.a = 0;
+        $scope.b = 0;
+
+        $scope.c = 0;
+
+        $scope.x = 0;
+        $scope.y = 0;
+        $scope.z = 0;
+
+        function pad(num, size) {
+            var s = num + "";
+            if (s == "NaN") {
+                return "00";
+            }
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
+
+        function time_to_seconds(hours, minutes, seconds) {
+            var t = 0;
+            if (hours) {
+                t += parseInt(hours) * 3600;
+            }
+            if (minutes) {
+                t += parseInt(minutes) * 60;
+            }
+            if (seconds) {
+                t += parseInt(seconds);
+            }
+            return t;
+        }
+
+        function time_to_tuple(seconds) {
+            var s = parseInt(seconds);
+
+            return [parseInt(s / 60), s % 60];
+        }
+
+        $scope.padInput = function() {
+            $scope.a = pad($scope.a, 2);
+            $scope.b = pad($scope.b, 2);
+            $scope.x = pad($scope.x, 2);
+            $scope.y = pad($scope.y, 2);
+            $scope.z = pad($scope.z, 2);
+        }
+
+        $scope.setPace = function() {
+            var p = time_to_seconds(0, $scope.a, $scope.b);
+            var t = 1;
+            for (var i = $scope.distances.length - 1; i >= 0; i--) {
+                t = p * $scope.distances[i].distance;
+                $scope.distances[i]["time"] = pad(parseInt(t / 3600), 2) + ":" + pad(parseInt((t % 3600) / 60), 2) + ":" + pad(parseInt((t % 60)), 2);
+                $scope.distances[i]["pace"] = pad(parseInt($scope.a), 2) + ":" + pad(parseInt($scope.b), 2);
+            }
+
+            $scope.c_pace = pad(parseInt($scope.a), 2) + ":" + pad(parseInt($scope.b), 2);
+            t = p * $scope.c_distance;
+            $scope.c_time = pad(parseInt(t / 3600), 2) + ":" + pad(parseInt((t % 3600) / 60), 2) + ":" + pad(parseInt((t % 60)), 2);
+
+            $scope.padInput();
+        }
+
+        $scope.setTime = function() {
+            var t = time_to_seconds($scope.x, $scope.y, $scope.z);
+            var min, sec;
+            for (var i = $scope.distances.length - 1; i >= 0; i--) {
+                min = time_to_tuple(t / $scope.distances[i].distance)[0];
+                sec = time_to_tuple(t / $scope.distances[i].distance)[1];
+
+                $scope.distances[i]["time"] = pad(parseInt($scope.x), 2) + ":" + pad(parseInt($scope.y), 2) + ":" + pad(parseInt($scope.z), 2);
+                $scope.distances[i]["pace"] = pad(parseInt(min), 2) + ":" + pad(parseInt(sec), 2);
+            }
+
+            $scope.c_time = pad(parseInt($scope.x), 2) + ":" + pad(parseInt($scope.y), 2) + ":" + pad(parseInt($scope.z), 2);
+            min = time_to_tuple(t / $scope.c_distance)[0];
+            sec = time_to_tuple(t / $scope.c_distance)[1];
+            $scope.c_pace = pad(parseInt(min), 2) + ":" + pad(parseInt(sec), 2);
+
+            $scope.padInput();
+        }
+
+        $scope.setPace();
+
+    });
+
+
+</script>
+
+</html>
