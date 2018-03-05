@@ -464,6 +464,11 @@
             t = p * $scope.c_distance;
             $scope.c_time = pad(parseInt(t / 3600), 2) + ":" + pad(parseInt((t % 3600) / 60), 2) + ":" + pad(parseInt((t % 60)), 2);
 
+            if ($scope.c_distance == null) {
+            	$scope.c_pace = "";
+            	$scope.c_time = "";
+            }
+
             $scope.padInput();
         }
 
@@ -482,6 +487,10 @@
             min = time_to_tuple(t / $scope.c_distance)[0];
             sec = time_to_tuple(t / $scope.c_distance)[1];
             $scope.c_pace = pad(parseInt(min), 2) + ":" + pad(parseInt(sec), 2);
+            if ($scope.c_distance == null) {
+            	$scope.c_pace = "";
+            	$scope.c_time = "";
+            }
 
             $scope.padInput();
         }
